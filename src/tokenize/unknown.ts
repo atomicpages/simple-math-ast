@@ -5,8 +5,8 @@ export const UNKNOWN = "UNKNOWN";
 export const UNKNOWN_RULE = {
   key: ".+",
   data: {
-    type: UNKNOWN
-  }
+    type: UNKNOWN,
+  },
 };
 
 export const isUnknown = pipe(prop("type"), equals(UNKNOWN));

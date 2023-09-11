@@ -23,8 +23,8 @@ npm install simple-math-ast
 
 ### Code example
 
-```js
-import build from "simple-math-ast";
+```ts
+import { build } from "simple-math-ast";
 
 /**
  * Provide math expression, pass to function & receive Math AST
@@ -50,7 +50,10 @@ console.log(tree);
  */
 ```
 
-```js
+```ts
+import { tokenize } from "simple-math-ast/tokenize";
+
+// or using legacy imports...
 import { tokenize } from "simple-math-ast";
 
 /**
@@ -88,27 +91,6 @@ console.log(tokens);
  */
 ```
 
-## Contributers
+## Credits &amp; Acknowledgements
 
-#### Install
-
-```shell
-git clone https://github.com/Flyr1Q/simple-math-ast.git
-cd simple-math-ast
-npm i
-```
-
-#### Build
-
-* One shot
-  * all formats: `npm run build`
-  * commonjs (output in `lib` dir): `npm run build:commonjs`
-  * ecmascript module (ouput in `es` dir): `npm run build:es`
-  * umd (output as `dist/simple-math-ast.js`) : `npm run build:umd`
-  * umd - minified (output as `dist/simple-math-ast.min.js`) : `npm run build:umd:min`
-* Watch mode:
-  * commonjs: `npm run build:watch` or `npm run build:commonjs:watch`
-  * umd: `npm run build:umd:watch`
-  * es: `npm run build:es:watch`
-
-Copyright 2018 © Esimov Miras
+Originally written by [Esimov Miras](https://github.com/Flyr1Q/simple-math-ast.git).

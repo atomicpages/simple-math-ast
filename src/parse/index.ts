@@ -7,7 +7,7 @@ import {
   isOperator,
   isNamedFunction,
   isLeftParenthesis,
-  isRightParenthesis
+  isRightParenthesis,
 } from "../queries";
 
 import ASTNode from "./node";
@@ -29,11 +29,11 @@ const addOperatorNode = (nodes, token) => {
   nodes.push(node);
 };
 
-const parse = tokens => {
+export const parse = (tokens) => {
   const ops = [];
   const nodes = [];
 
-  forEach(token => {
+  forEach((token) => {
     if (isNumber(token) || isVariable(token) || isConstant(token)) {
       addOperandNode(nodes, token);
     }
@@ -69,5 +69,3 @@ const parse = tokens => {
 
   return nodes.pop();
 };
-
-export default parse;

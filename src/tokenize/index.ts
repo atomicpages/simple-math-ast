@@ -7,7 +7,7 @@ import {
   reduce,
   flatten,
   reject,
-  __
+  __,
 } from "ramda";
 
 import config from "../config";
@@ -24,17 +24,15 @@ const applyRuleOnTarget = curry(({ data, key }, target) => {
 
   return zipConcat(
     split(key, target),
-    map(buildToken(data), match(key, target))
+    map(buildToken(data), match(key, target)),
   );
 });
 
 const applyRuleOnTargets = (targets, rule) =>
   pipe(map(applyRuleOnTarget(rule)), flatten, compact)(targets);
 
-const tokenize = pipe(
+export const tokenize = pipe(
   wrap,
   reduce(applyRuleOnTargets, __, rules(config)),
-  reject(isUnknown)
+  reject(isUnknown),
 );
-
-export default tokenize;
