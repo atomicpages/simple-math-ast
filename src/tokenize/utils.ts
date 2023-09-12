@@ -1,9 +1,8 @@
-import { filter, identity } from "ramda";
+export const zipConcat = <T>(source1: T[], source2: T[]) => {
+  const output: T[] = [];
+  const len = Math.max(source1.length, source2.length);
 
-export const zipConcat = (source1: string[], source2: string[]) => {
-  const output = [];
-
-  for (let i = 0; i < Math.max(source1.length, source2.length); i += 1) {
+  for (let i = 0; i < len; i += 1) {
     if (i < source1.length) {
       output.push(source1[i]);
     }
@@ -16,5 +15,7 @@ export const zipConcat = (source1: string[], source2: string[]) => {
   return output;
 };
 
-export const compact = filter(identity);
-export const wrap = <T = any>(value: T) => [value];
+export const compact = <T>(a: T[]): T[] => a.filter(Boolean);
+export const wrap = <T>(value: T): [T] => [value];
+export const isNil = (a: any) => a === null || a === undefined;
+export const last = <T>(a: T[]): T => a[a.length - 1];

@@ -1,5 +1,5 @@
 import { tokenize } from "./tokenize";
-import { parse } from "./parse";
+import { parse } from "./parse/parse";
 
 export const build = (expression: string) => {
   return parse(tokenize(expression));

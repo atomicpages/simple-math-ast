@@ -10,7 +10,8 @@
     "declarationDir": "dist/types",
     "declarationMap": true,
     "emitDeclarationOnly": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "strictNullChecks": true
   },
-  "include": ["src"],
+  "include": ["src", "vitest.config.mts"]
 }

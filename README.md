@@ -4,10 +4,10 @@
 
 Simple Math AST serves two purposes:
 
-1.  Splitting math expression into the array of smallest units (tokens).
-2.  Building Math AST using tokens via Shunting-Yard Algorithm
+1. Splitting math expression into the array of smallest units (tokens).
+2. Building Math AST using tokens via Shunting-Yard Algorithm
 
-Read my blog posts about tokenizer & parser construction
+Read my blog posts about tokenizer &amp; parser construction
 
 **[Math AST: Tokenizer](https://www.esimovmiras.cc/articles/02-build-math-ast-tokenizer)**
 
@@ -16,7 +16,9 @@ Read my blog posts about tokenizer & parser construction
 ## Install
 
 ```shell
-npm install simple-math-ast
+npm install @djthoms/simple-math-ast
+yarn add @djthoms/simple-math-ast
+pnpm add @djthoms/simple-math-ast
 ```
 
 ## Use
@@ -24,7 +26,7 @@ npm install simple-math-ast
 ### Code example
 
 ```ts
-import { build } from "simple-math-ast";
+import { build } from "@djthoms/simple-math-ast";
 
 /**
  * Provide math expression, pass to function & receive Math AST
@@ -51,10 +53,10 @@ console.log(tree);
 ```
 
 ```ts
-import { tokenize } from "simple-math-ast/tokenize";
+import { tokenize } from "@djthoms/simple-math-ast/tokenize";
 
 // or using legacy imports...
-import { tokenize } from "simple-math-ast";
+import { tokenize } from "@djthoms/simple-math-ast";
 
 /**
  * Provide math expression, pass to function and receive array of tokens
@@ -93,4 +95,5 @@ console.log(tokens);
 
 ## Credits &amp; Acknowledgements
 
-Originally written by [Esimov Miras](https://github.com/Flyr1Q/simple-math-ast.git).
+Originally written by
+[Esimov Miras](https://github.com/Flyr1Q/simple-math-ast.git).

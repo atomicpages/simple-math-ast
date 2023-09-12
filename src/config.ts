@@ -1,9 +1,16 @@
 import { Types } from "./types";
 
-const config = {
+export const UNKNOWN_RULE = {
+  key: ".+",
+  data: {
+    type: Types.UNKNOWN,
+  },
+} as const;
+
+export const config = {
   rules: [
     {
-      key: "sin|cos|tg|ctg|log|sqrt",
+      key: "sin|cos|tg|ctg|log|sqrt|abs",
       data: {
         type: Types.NAMED_FUNCTION,
         args: 1,
@@ -11,7 +18,7 @@ const config = {
       },
     },
     {
-      key: "PI|E|pi|e",
+      key: "PI|E|pi|e|π",
       data: {
         type: Types.CONSTANT,
       },
@@ -46,5 +53,3 @@ const config = {
     { key: "[a-zA-Z]", data: { type: Types.VARIABLE } },
   ],
 };
-
-export default config;
