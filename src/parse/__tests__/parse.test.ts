@@ -29,8 +29,8 @@ describe("parse tests", () => {
   });
 
   it("should parse a complex expression", () => {
-    expect(parse(tokenize("2.5 * x + (sin(pi / 2) / cosx) ^ 3 - 4 * 2")))
-      .toMatchInlineSnapshot(`
+    const tokens = tokenize("2.5 * x + (sin(pi / 2) / cosx) ^ 3 - 4 * 2");
+    expect(parse(tokens)).toMatchInlineSnapshot(`
         {
           "args": 2,
           "left": {

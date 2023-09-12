@@ -2,7 +2,6 @@ name: Build
 on:
   push:
     branches:
-      - next
       - main
 jobs:
   release:
@@ -21,8 +20,8 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install-test --frozen-lockfile
-      # - name: Release
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      #   run: pnpm semantic-release
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm semantic-release
