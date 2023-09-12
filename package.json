@@ -50,6 +50,7 @@
     "build:types": "tsc -p tsconfig.build.json",
     "check-types": "tsc --noEmit --emitDeclarationOnly false",
     "prepare": "husky install",
+    "create-docs": "typedoc $(./scripts/fd.sh) --out docs",
     "pre-push": "npm-run-all -p check-types lint test"
   },
   "devDependencies": {
@@ -68,6 +69,7 @@
     "npm-run-all": "^4.1.5",
     "semantic-release": "^21.1.1",
     "ts-toolbelt": "^9.6.0",
+    "typedoc": "^0.25.1",
     "typescript": "^5.2.2",
     "vitest": "^0.34.4"
   },
