@@ -30,6 +30,11 @@
       "types": "./dist/types/tokenize/index.d.ts",
       "import": "./dist/esm/tokenize/index.js",
       "require": "./dist/cjs/tokenize/index.js"
+    },
+    "./parser": {
+      "types": "./dist/types/parse/parse.d.ts",
+      "import": "./dist/esm/parse/parse.js",
+      "require": "./dist/cjs/parse/parse.js"
     }
   },
   "main": "dist/cjs/index.js",
