@@ -34,9 +34,11 @@ export class ASTNode {
 
   /**
    * Recursively converts the ASTNode to a JSON object.
+   * @example
+   * build("1 + 2").toJSON();
    * @returns
    */
-  toJSON() {
+  toJSON(): Record<string, unknown> {
     return {
       ...this._token,
       left: this._left?.toJSON(),

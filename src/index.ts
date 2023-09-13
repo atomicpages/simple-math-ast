@@ -1,10 +1,12 @@
 import { tokenize } from "./tokenize";
 import { parse } from "./parse/parse";
-import type { Token, Types } from "./types";
+import { Types } from "./types";
+import type { Token, ConstantToken, OperatorToken } from "./types";
+import { ASTNode } from "./parse/node";
 
 export const build = (expression: string) => {
   return parse(tokenize(expression));
 };
 
-export { tokenize, parse, Types };
-export type { Token };
+export { tokenize, parse, Types, ASTNode };
+export type { Token, ConstantToken, OperatorToken };
