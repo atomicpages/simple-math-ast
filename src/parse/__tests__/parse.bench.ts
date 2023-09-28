@@ -19,3 +19,21 @@ describe("parse benchmarks", () => {
     );
   });
 });
+
+describe("parse to json benchmarks", () => {
+  bench("simple parse benchmarks", () => {
+    parse(tokenize("1 + 2 * 3 / 4 - 5 ^ 6"))?.toJSON();
+  });
+
+  bench("complex parse benchmarks", () => {
+    parse(tokenize("2.5 * x + (sin(pi / 2) / cosx) ^ 3 - 4 * 2"))?.toJSON();
+  });
+
+  bench("very complex parse benchmarks", () => {
+    parse(
+      tokenize(
+        "2.5 * x + (sin(pi / 2) / cosx) ^ 3 - 4 * (2 + 2.5) * x + (sin(pi / 2) / cosx) ^ 3 - 4 * 2",
+      ),
+    )?.toJSON();
+  });
+});
