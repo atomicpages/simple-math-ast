@@ -44,7 +44,7 @@ export const parse = (tokens: Token[]) => {
     }
 
     if (isRightParenthesis(token)) {
-      while (last(ops) && !isLeftParenthesis(last(ops)!)) {
+      while (last(ops) && !isLeftParenthesis(last(ops))) {
         addOperatorNode(nodes, ops.pop()! as OperatorToken);
       }
 

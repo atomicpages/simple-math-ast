@@ -22,24 +22,36 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
+      "import": {
+        "types": "./dist/esm/index.d.mts",
+        "default": "./dist/esm/index.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
     },
     "./tokenizer": {
-      "types": "./dist/types/tokenize/index.d.ts",
-      "import": "./dist/esm/tokenize/index.js",
-      "require": "./dist/cjs/tokenize/index.js"
+      "import": {
+        "types": "./dist/esm/tokenize/index.d.mts",
+        "default": "./dist/esm/tokenize/index.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/tokenize/index.d.ts",
+        "default": "./dist/cjs/tokenize/index.js"
+      }
     },
     "./parser": {
-      "types": "./dist/types/parse/parse.d.ts",
-      "import": "./dist/esm/parse/parse.js",
+      "import": {
+        "types": "./dist/esm/parse/parse.d.mts",
+        "default": "./dist/esm/parse/"
+      },
       "require": "./dist/cjs/parse/parse.js"
     }
   },
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.mjs",
+  "types": "./dist/types/index.d.ts",
   "files": [
     "dist"
   ],
@@ -50,8 +62,8 @@
     "benchmark": "vitest bench --run",
     "test": "vitest run",
     "test:watch": "vitest",
-    "build:cjs": "esbuild --target=es2020 --outdir=dist/cjs --sourcemap --format=cjs $(./scripts/fd.sh)",
-    "build:esm": "esbuild --target=es2020 --outdir=dist/esm --sourcemap --format=esm $(./scripts/fd.sh)",
+    "build:cjs": "tsup --target es2020 -d dist/cjs --dts --sourcemap --format cjs `./scripts/fd.sh`",
+    "build:esm": "tsup --target es2020 --dts -d dist/esm --sourcemap --format esm `./scripts/fd.sh`",
     "build:types": "tsc -p tsconfig.build.json",
     "check-types": "tsc --noEmit --emitDeclarationOnly false",
     "prepare": "husky install",
@@ -59,26 +71,27 @@
     "pre-push": "npm-run-all -p check-types lint test"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.7.1",
-    "@commitlint/config-conventional": "^17.7.0",
-    "@djthoms/eslint-config": "^6.1.0",
-    "@djthoms/prettier-config": "^4.3.0",
+    "@arethetypeswrong/cli": "^0.15.3",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@djthoms/eslint-config": "^6.4.2",
+    "@djthoms/prettier-config": "^4.4.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
-    "@types/ramda": "^0.29.5",
-    "@vitest/coverage-v8": "^0.34.5",
-    "esbuild": "^0.19.4",
-    "fd-find": "^1.2.0",
+    "@types/ramda": "^0.30.0",
+    "@vitest/coverage-v8": "^1.6.0",
+    "glob": "^10.3.15",
     "husky": "^8.0.3",
-    "lint-staged": "^14.0.1",
+    "lint-staged": "^15.2.2",
     "npm-run-all": "^4.1.5",
-    "semantic-release": "^22.0.5",
+    "semantic-release": "^22.0.12",
     "ts-toolbelt": "^9.6.0",
-    "typedoc": "^0.25.1",
-    "typescript": "^5.2.2",
-    "vitest": "^0.34.5"
+    "tsup": "^8.0.2",
+    "typedoc": "^0.25.13",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
   },
   "dependencies": {
-    "ramda": "^0.29.0"
+    "ramda": "^0.30.0"
   }
 }
